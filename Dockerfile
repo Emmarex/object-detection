@@ -22,7 +22,8 @@ RUN pip install --upgrade pip
 
 COPY . $APP_HOME
 
-RUN curl https://github.com/matterport/Mask_RCNN/releases/download/v1.0/mask_rcnn_coco.h5 -O -J -L
+RUN curl https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/yolo.h5 -O -J -L
+
 RUN mv $APP_HOME/mask_rcnn_coco.h5 $APP_HOME/model/mask_rcnn_coco.h5 
 
 RUN pip install -r $APP_HOME/requirements.txt

@@ -8,7 +8,7 @@ RUN addgroup app && adduser --system --no-create-home app --ingroup app
 # create the appropriate directories
 ENV HOME=/home/app
 
-ENV APP_HOME=/home/app/
+ENV APP_HOME=/home/app
 
 WORKDIR $APP_HOME
 
@@ -24,9 +24,9 @@ COPY . $APP_HOME
 
 RUN curl https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/yolo.h5 -O -J -L
 
-RUN mv $APP_HOME/yolo.h5 $APP_HOME/model/yolo.h5 
+RUN mv yolo.h5 ${APP_HOME}/model/yolo.h5 
 
-RUN pip install -r $APP_HOME/requirements.txt
+RUN pip freeze > requirements.txt
 
 # chown all the files to the app user
 RUN chown -R app:app $APP_HOME
